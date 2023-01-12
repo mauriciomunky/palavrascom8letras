@@ -40,11 +40,13 @@ with open(ENTRADA, encoding='latin-1') as entrada:
 
     qt_original = i
 
+palavras = filter(lambda palavra: len(palavra) == 8, palavras)
+palavras = sorted(palavras, key=chave)
+
 msg = '{} palavras na lista original, {} na lista gerada: {} adicionadas'
 extra = len(palavras) - qt_original
 print(msg.format(qt_original, len(palavras), extra))
 
-palavras = sorted(palavras, key=chave)
 
 with open(SAIDA, 'wt', encoding='utf-8') as saida:
     saida.write('\n'.join(palavras))
